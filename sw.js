@@ -1,9 +1,12 @@
 
-const CACHE_NAME = 'tap-counter-cache-v2';
+const CACHE_NAME = 'tap-counter-cache-v3';
 const urlsToCache = [
   './',
   './index.html',
   './manifest.json',
+  './index.tsx',
+  './App.tsx',
+  './components/icons.tsx'
 ];
 
 // On install, cache the app shell.
@@ -20,13 +23,18 @@ self.addEventListener('install', event => {
 
 // Use a network-first fetching strategy.
 self.addEventListener('fetch', event => {
+    // We only want to cache GET requests.
+    if (event.request.method !== 'GET') {
+        return;
+    }
     event.respondWith(
         fetch(event.request)
             .then(networkResponse => {
                 // If we received a response from the network, cache it and return it.
                 return caches.open(CACHE_NAME).then(cache => {
-                    // Only cache successful GET requests to avoid caching errors.
-                    if (event.request.method === 'GET' && networkResponse.status === 200) {
+                    // Only cache successful responses to avoid caching errors.
+                    // Also, don't cache Chrome extension requests.
+                    if (networkResponse && networkResponse.status === 200 && !event.request.url.startsWith('chrome-extension://')) {
                        cache.put(event.request, networkResponse.clone());
                     }
                     return networkResponse;
