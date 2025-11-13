@@ -1,0 +1,5 @@
+{
+  "name": "Gym Tap Counter",
+  "description": "A modern, dark-themed tap counter designed for tracking repetitions and sets during gym workouts. It features simple controls for incrementing, decrementing, resetting, and a custom step value. It's designed to be installed on your phone as a Progressive Web App (PWA) for a native-like experience.",
+  "requestFramePermissions": []
+}
