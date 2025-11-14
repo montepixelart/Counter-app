@@ -112,7 +112,7 @@ const App: React.FC = () => {
         </div>
         <button
           onClick={handleIncrement}
-          className="w-48 h-48 md:w-56 md:h-56 bg-powder-blue rounded-full flex items-center justify-center text-prussian-blue text-3xl font-bold shadow-lg shadow-powder-blue/20 transform transition-transform duration-150 active:scale-90 focus:outline-none focus:ring-4 focus:ring-powder-blue focus:ring-opacity-50"
+          className="w-40 h-40 md:w-56 md:h-56 bg-powder-blue rounded-full flex items-center justify-center text-prussian-blue text-3xl font-bold shadow-lg shadow-powder-blue/20 transform transition-transform duration-150 active:scale-90 focus:outline-none focus:ring-4 focus:ring-powder-blue focus:ring-opacity-50" style={{ marginBottom: '10px' }}
         >
           TAP
         </button>
@@ -162,7 +162,7 @@ const App: React.FC = () => {
           </button>
         </div>
         <div className="flex items-center space-x-2 pt-2">
-          <label htmlFor="custom-increment" className="text-powder-blue text-sm">Step:</label>
+          <label htmlFor="custom-increment" className="text-powder-blue text-sm">Increase by:</label>
           <input
             id="custom-increment"
             type="number"
